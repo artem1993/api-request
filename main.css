@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.previews {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 15px;
+  padding: 15px;
+  margin: 0 auto;
+  max-width: 1400px;
+  background-color: #b1b1b1;
+}
+
+.preview {
+  aspect-ratio: 2/3;
+  text-align: center;
+}
+.preview img {
+  height: 100%;
+  width: 100%;
+}
+.preview h5 {
+  padding-top: 8px;
+}
