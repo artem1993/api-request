@@ -16,17 +16,26 @@ const createPreviews = previewsData => {
     })
 }
 
+const showError = textError => {
+    const dialog = document.querySelector("dialog")
+    dialog.textContent = textError
+    dialog.showModal()
+    setTimeout(() => {
+        dialog.close()
+    }, 2500)
+}
+
 const getFilmsFromKinopoisk = async () => {
     const api = "https://api.kinopoisk.dev/v1.4/movie?rating.imdb=8-10"
     const token = "EB3E65G-Q4JM42B-H861NNH-AP97J88"
-    
+
     try {
         const response = await fetch(api, {headers: {"X-API-KEY": token}})
         if (response.ok) {
             const data = await response.json()
             createPreviews(data.docs)
-        } else console.log(`Error HTTP: ${response.status}`)
+        } else showError(`Ошибка запроса: ${response.status}`)
     } catch (error) {
-        console.log(`Incorrect file: ${error.message}`)
+        showError(`Ошибка на сервере. Каталог загружен не полностью.`)
     }
 }

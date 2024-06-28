@@ -25,3 +25,12 @@
 .preview h5 {
   padding-top: 8px;
 }
+
+dialog {
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  padding: 50px 16px;
+  border: 1px solid #cccccc;
+}
